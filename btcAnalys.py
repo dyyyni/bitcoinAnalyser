@@ -25,10 +25,10 @@ def isDateValid(parsedDate):
         # datetime requires the form yyyy/dd/mm
         date = datetime.datetime(int(parsedDate[2]), int(parsedDate[1]), int(parsedDate[0]))
         if date > dateNow:
-            print(f"As of now, I can't see to the future. The date is set to {dateNow.strftime('%d/%m/%Y')}.")
+            print(f"As of now, I can't see to the future. The 'to date' is set to {dateNow.strftime('%d/%m/%Y')}.")
             date = dateNow
         if date < dateLowLimit:
-            print(f"My data sources only reach to 28/4/2013. It's set as the date.")
+            print(f"My data sources only reach to 28/4/2013. It's set as the 'from date'.")
             date = dateLowLimit
         utcTimestamp = date.replace(tzinfo=datetime.timezone.utc).timestamp()
         return utcTimestamp
