@@ -1,4 +1,6 @@
+from datetime import date
 import requests
+import json
 
 apiURL = "https://api.coingecko.com/api/v3/coins/bitcoin/market_chart/range"
 
@@ -14,6 +16,7 @@ class CryptoApi:
         }
         self.dateFrom = None
         self.dateTo = None
+        self.dateRangeCase = None
 
         self.activeData = None
 
@@ -32,11 +35,13 @@ class CryptoApi:
         earlyDateLim = 1374969600 # 28/4/2013 + 90 days
         # case 1: the range is over 90 days
         if dateTo - dateFrom > days90:
+            self.dateRangeCase = 'case1'
             return (dateFrom, dateTo)
 
         # case 2: the range is under 90 days
         # -> dateFrom - 90 days
         elif dateTo - dateFrom < days90 and dateFrom > earlyDateLim:
+            self.dateRangeCase = 'case2'
             dateFrom = dateFrom - days90
             return (dateFrom, dateTo)
 
@@ -44,6 +49,7 @@ class CryptoApi:
         # -> dateTo + 90 days
         else:
             dateTo = dateTo + days90
+            self.dateRangeCase = 'case3'
             return (dateFrom, dateTo)
 
 
@@ -59,4 +65,21 @@ class CryptoApi:
         self.__setActiveData(response)
 
     def getActiveData(self):
-        return self.activeData
+        datesPrices = self.activeData.json()['prices']
+        datesVols = self.activeData.json()['total_volumes']
+        # refer to __rangeHelper for case explanation
+        if self.dateRangeCase is 'case1':
+            return (datesPrices, datesVols)
+
+        elif self.dateRangeCase is 'case2':
+            return (datesPrices[90:], datesVols[90:])
+
+        elif self.dateRangeCase is 'case3':
+            return (datesPrices[:len(datesPrices)-90], datesVols[:len(datesVols)-90])
+
+
+    def areParams(self):
+        if (self.parameters['from'] and self.parameters['to']) is not None:
+            return True
+        else:
+            return False
