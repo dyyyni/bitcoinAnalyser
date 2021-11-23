@@ -1,0 +1,2 @@
+# bitcoinAnalyser
+Bitcoin market analyser
