@@ -27,7 +27,7 @@ class CryptoApi:
         > 90 days range : daily data (00:00) is returned
         < 90 days range : hourly or by 5 min data is returned
         Solution: Automatically extend the range so daily data is returned
-        --> Only the actual range data will be returned at the end.
+        --> Only the actual range data will exit this module.
         '''
         days90 = 90*24*60*60 # Seconds
         earlyDateLim = 1374969600 # 28/4/2013 + 90 days
