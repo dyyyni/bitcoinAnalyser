@@ -1,6 +1,4 @@
-from datetime import date
 import requests
-import json
 
 apiURL = "https://api.coingecko.com/api/v3/coins/bitcoin/market_chart/range"
 
@@ -68,15 +66,17 @@ class CryptoApi:
         datesPrices = self.activeData.json()['prices']
         datesVols = self.activeData.json()['total_volumes']
         # refer to __rangeHelper for case explanation
-        if self.dateRangeCase is 'case1':
-            return (datesPrices, datesVols)
+        if self.dateRangeCase == 'case1':
+            return datesPrices, datesVols
 
-        elif self.dateRangeCase is 'case2':
-            return (datesPrices[90:], datesVols[90:])
+        elif self.dateRangeCase == 'case2':
+            return datesPrices[90:], datesVols[90:]
 
-        elif self.dateRangeCase is 'case3':
-            return (datesPrices[:len(datesPrices)-90], datesVols[:len(datesVols)-90])
+        elif self.dateRangeCase == 'case3':
+            return datesPrices[:len(datesPrices)-90], datesVols[:len(datesVols)-90]
 
+    def getRange(self):
+        return self.dateFrom, self.dateTo
 
     def areParams(self):
         if (self.parameters['from'] and self.parameters['to']) is not None:

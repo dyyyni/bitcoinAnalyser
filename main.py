@@ -32,7 +32,7 @@ def askDate():
                 print(f"As of now, I can't see to the future. The date is set to {dateNow.strftime('%d/%m/%Y')}.")
                 date = dateNow
             if date < dateLowLimit:
-                print(f"Bitcoin was released 1/3/2009, but my data sources only reach 28/4/2013.")
+                print(f"My data sources only reach to 28/4/2013. It's set as the date.")
                 date = dateLowLimit
             utcTimestamp = date.replace(tzinfo=datetime.timezone.utc).timestamp()
             correctDate = True
@@ -41,8 +41,8 @@ def askDate():
             print("Incorrect date. Try again (dd/mm/yyyy): ", end='')
             correctDate = False
 
-def commandCenter(command, apiObject):
-    commands =  ['help', 'setRange', 'getData', 'show'
+def commandCenter(command, apiObject, dataAnalys):
+    commands =  ['help', 'setRange', 'getData', 'exit', 'rangeNow', 'show'
                 ]
     enterDatePrompt =   ["Enter the first date in form (dd/mm/yyyy): ",
                          "Enter the last date in form (dd/mm/yyyy): "
@@ -57,6 +57,9 @@ def commandCenter(command, apiObject):
     if command not in commands:
         print(errorMessages[3])
 
+    elif command == 'help':
+        print(commands)
+
     elif command == 'setRange':
         print(enterDatePrompt[0], end='')
         fromDate = askDate()
@@ -70,16 +73,30 @@ def commandCenter(command, apiObject):
     elif command == 'getData':
         if apiObject.areParams():
            apiObject.retrieveData()
+           dataAnalys.setActiveData(apiObject.getActiveData)
         else:
             print(errorMessages[1])
 
+    elif command == 'rangeNow':
+        firstDate, lastDate = apiObject.getRange()
+        if firstDate != None:
+            firstDate = datetime.datetime.fromtimestamp(firstDate).strftime('%d/%m/%Y')
+        if lastDate != None:
+            lastDate = datetime.datetime.fromtimestamp(lastDate).strftime('%d/%m/%Y')
+        print(f"{firstDate} - {lastDate}")
+
     elif command == 'show':
         dataAnalysModule.jprint(apiObject.getActiveData())
+
+    elif command == 'exit':
+        print('See you later!')
+        exit(0)
 
 
 
 def main():
     apiControl = cryptoApiModule.CryptoApi()
+    dataAnalys = dataAnalysModule.Data()
 
     print("This application retrieves bitcoin price information.")
     print("I'm able to gather information from 28/4/2013 to present day.")
@@ -87,7 +104,7 @@ def main():
 
     while True:
         command = input("Enter command: ")
-        commandCenter(command, apiControl)
+        commandCenter(command, apiControl, dataAnalys)
 
 
 if __name__ == '__main__':
