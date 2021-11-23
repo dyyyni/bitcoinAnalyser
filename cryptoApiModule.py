@@ -83,3 +83,9 @@ class CryptoApi:
             return True
         else:
             return False
+    
+    def isData(self):
+        if self.activeData is not None:
+            return True
+        else:
+            return False

@@ -42,7 +42,7 @@ def askDate():
             correctDate = False
 
 def commandCenter(command, apiObject, dataAnalys):
-    commands =  ['help', 'setRange', 'getData', 'exit', 'rangeNow', 'show'
+    commands =  ['help', 'setRange', 'getData', 'exit', 'rangeNow', 'longDown', 'show'
                 ]
     enterDatePrompt =   ["Enter the first date in form (dd/mm/yyyy): ",
                          "Enter the last date in form (dd/mm/yyyy): "
@@ -73,7 +73,8 @@ def commandCenter(command, apiObject, dataAnalys):
     elif command == 'getData':
         if apiObject.areParams():
            apiObject.retrieveData()
-           dataAnalys.setActiveData(apiObject.getActiveData)
+           datesPrices, datesVols = apiObject.getActiveData()
+           dataAnalys.setActiveData(datesPrices, datesVols)
         else:
             print(errorMessages[1])
 
@@ -84,6 +85,13 @@ def commandCenter(command, apiObject, dataAnalys):
         if lastDate != None:
             lastDate = datetime.datetime.fromtimestamp(lastDate).strftime('%d/%m/%Y')
         print(f"{firstDate} - {lastDate}")
+
+    elif command == 'longDown':
+        if apiObject.areParams() and apiObject.isData():
+            downStreak = dataAnalys.getLongestDownTrend()
+            print(f"The longest streak for price decrease was {downStreak} days in a row with given inputs.")
+        else:
+            print(errorMessages[2])
 
     elif command == 'show':
         dataAnalysModule.jprint(apiObject.getActiveData())

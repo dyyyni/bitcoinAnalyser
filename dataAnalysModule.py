@@ -1,5 +1,11 @@
 import json
 
+def jprint(activeData):
+# create a formatted string of the Python JSON object
+    text = json.dumps(activeData, sort_keys=True, indent=4)
+    print(text)
+
+
 class Data:
 
     def __init__(self):
@@ -49,7 +55,3 @@ class Data:
         # /1000 --> milliseconds to seconds conversion
         return (date/1000, highestVol)
 
-    def jprint(activeData):
-    # create a formatted string of the Python JSON object
-        text = json.dumps(activeData, sort_keys=True, indent=4)
-        print(text)
