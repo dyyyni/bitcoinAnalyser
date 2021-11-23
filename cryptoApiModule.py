@@ -12,6 +12,8 @@ class CryptoApi:
         "from" : None,  # utc timestamp
         "to" : None     # utc timestamp
         }
+        self.dateFrom = None
+        self.dateTo = None
 
         self.activeData = None
 
@@ -47,6 +49,8 @@ class CryptoApi:
 
     def setRange(self, dateFrom, dateTo):
         (dateFromMod, dateToMod) = self.__rangeHelper(dateFrom, dateTo)
+        self.dateFrom = dateFrom
+        self.dateTo = dateTo
         self.parameters["from"] = dateFromMod
         self.parameters["to"] = dateToMod
 
