@@ -43,7 +43,7 @@ def askDate():
 
 def commandCenter(command, apiObject, dataAnalys):
     commands =  ['help', 'setRange', 'getData', 'exit', 'rangeNow', 'longDown',
-                 'highVol', 'bestProf', 'show'
+                 'highVol', 'bestProf'
                 ]
     enterDatePrompt =   ["Enter the first date in form (dd/mm/yyyy): ",
                          "Enter the last date in form (dd/mm/yyyy): "
@@ -116,12 +116,8 @@ def commandCenter(command, apiObject, dataAnalys):
         else:
             print(errorMessages[2])
 
-    elif command == 'show':
-        dataAnalysModule.jprint(apiObject.getActiveData())
-
     elif command == 'exit':
         print('See you later!')
-        exit(0)
 
 
 
