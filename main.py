@@ -42,7 +42,8 @@ def askDate():
             correctDate = False
 
 def commandCenter(command, apiObject, dataAnalys):
-    commands =  ['help', 'setRange', 'getData', 'exit', 'rangeNow', 'longDown', 'show'
+    commands =  ['help', 'setRange', 'getData', 'exit', 'rangeNow', 'longDown',
+                 'highVol', 'show'
                 ]
     enterDatePrompt =   ["Enter the first date in form (dd/mm/yyyy): ",
                          "Enter the last date in form (dd/mm/yyyy): "
@@ -90,6 +91,14 @@ def commandCenter(command, apiObject, dataAnalys):
         if apiObject.areParams() and apiObject.isData():
             downStreak = dataAnalys.getLongestDownTrend()
             print(f"The longest streak for price decrease was {downStreak} days in a row with given inputs.")
+        else:
+            print(errorMessages[2])
+
+    elif command == 'highVol':
+        if apiObject.areParams() and apiObject.isData():
+            dateVolume = dataAnalys.getHighestTradeVol()
+            highDate = datetime.datetime.fromtimestamp(dateVolume[0]).strftime('%d/%m/%Y')
+            print(f'The highest trading volume was on {highDate}: {dateVolume[1]} eur')
         else:
             print(errorMessages[2])
 
