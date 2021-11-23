@@ -55,3 +55,37 @@ class Data:
         # /1000 --> milliseconds to seconds conversion
         return (date/1000, highestVol)
 
+    def getBestProfit(self):
+        datesPrices = self.getDatesPrices()
+
+        # Returned at the end of the algorithm
+        buyDate = None
+        sellDate = None
+        bestProfit = 0
+
+        # Used as intermediates during the algorithm
+        resBuyDate = datesPrices[0][0]
+        buyPrice = datesPrices[0][1]
+        sellPrice = None
+        profit = 0
+
+        for datePrice in datesPrices[1:]:
+            if datePrice[1] > buyPrice:
+                sellPrice = datePrice[1]
+                profit = sellPrice - buyPrice
+                if profit > bestProfit:
+                    bestProfit = profit
+                    sellDate = datePrice[0]
+                    buyDate = resBuyDate
+            if datePrice[1] < buyPrice:
+                buyPrice = datePrice[1]
+                sellPrice = None
+                resBuyDate = datePrice[0]
+
+        if sellDate == None:
+            return False
+        else:
+            # /1000 --> milliseconds to seconds conversion
+            return [buyDate/1000, sellDate/1000, bestProfit]
+
+

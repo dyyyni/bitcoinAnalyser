@@ -43,7 +43,7 @@ def askDate():
 
 def commandCenter(command, apiObject, dataAnalys):
     commands =  ['help', 'setRange', 'getData', 'exit', 'rangeNow', 'longDown',
-                 'highVol', 'show'
+                 'highVol', 'bestProf', 'show'
                 ]
     enterDatePrompt =   ["Enter the first date in form (dd/mm/yyyy): ",
                          "Enter the last date in form (dd/mm/yyyy): "
@@ -99,6 +99,20 @@ def commandCenter(command, apiObject, dataAnalys):
             dateVolume = dataAnalys.getHighestTradeVol()
             highDate = datetime.datetime.fromtimestamp(dateVolume[0]).strftime('%d/%m/%Y')
             print(f'The highest trading volume was on {highDate}: {dateVolume[1]} eur')
+        else:
+            print(errorMessages[2])
+
+    elif command == 'bestProf':
+        if apiObject.areParams() and apiObject.isData():
+            bestProfit = dataAnalys.getBestProfit()
+            if not bestProfit:
+                print("Do not buy or sell. The price trend only decreases in this range.")
+            else:
+                bestBuyDate = datetime.datetime.fromtimestamp(bestProfit[0]).strftime('%d/%m/%Y')
+                bestSellDate = datetime.datetime.fromtimestamp(bestProfit[1]).strftime('%d/%m/%Y')
+                print(f"The best date to buy is {bestBuyDate}")
+                print(f"The best date to sell is {bestSellDate}")
+
         else:
             print(errorMessages[2])
 
