@@ -46,5 +46,13 @@ class CryptoApi:
 
 
     def setRange(self, dateFrom, dateTo):
-        self.parameters["from"] = dateFrom
-        self.parameters["to"] = dateTo
+        (dateFromMod, dateToMod) = self.__rangeHelper(dateFrom, dateTo)
+        self.parameters["from"] = dateFromMod
+        self.parameters["to"] = dateToMod
+
+    def retrieveData(self):
+        response = requests.get(apiURL, params=self.parameters)
+        self.__setActiveData(response)
+
+    def getActiveData(self):
+        return self.activeData
