@@ -87,5 +87,3 @@ class Data:
         else:
             # /1000 --> milliseconds to seconds conversion
             return [buyDate/1000, sellDate/1000, bestProfit]
-
-
