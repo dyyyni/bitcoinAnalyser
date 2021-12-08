@@ -69,7 +69,7 @@ All the best\
 <!-- HOW TO USE -->
 
 ## How To Use
-Start by cloning the repository to your device by
+Start by cloning the repository to your device by\
 ```git clone https://github.com/dyyyni/bitcoinAnalyser.git```
 
 ### Dependencies
