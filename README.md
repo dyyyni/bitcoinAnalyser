@@ -34,7 +34,7 @@
       </ul>
     </li>
     <li>
-      <a href="#Instructions">Instructions</a>
+      <a href="#How To Use">How To Use</a>
       <ul>
         <li><a href="#btcAnalysCLI">btcAnalysCLI</a></li>
         <li><a href="#btcAnalys">btcAnalysC</a></li>
@@ -57,6 +57,17 @@ All the best\
 ### Built With
 
 * [Python](https://www.python.org/)
+
+
+<!-- HOW TO USE -->
+
+## How To Use
+
+### Dependencies
+
+### btcAnalysCLI
+
+### btcAnalys
 
 
 <!-- LICENSE -->
