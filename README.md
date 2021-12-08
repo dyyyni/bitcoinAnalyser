@@ -70,13 +70,11 @@ All the best\
 
 ## How To Use
 Start by cloning the repository to your device by
-```
-git clone https://github.com/dyyyni/bitcoinAnalyser.git
-```
-
-The project is divided in to two different use cases. First one is the 
+```git clone https://github.com/dyyyni/bitcoinAnalyser.git```
 
 ### Dependencies
+This project utilises the 'Requests' library for the api connection. The library can be installed by running this command
+```python -m pip install requests```
 
 ### btcAnalysCLI
 
