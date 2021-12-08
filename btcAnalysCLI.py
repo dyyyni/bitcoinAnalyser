@@ -61,8 +61,7 @@ def commandCenter(command, apiObject, dataAnalys):
     errorMessages =     ["The last date can't be smaller than the first date!",
                          "You have to set the range first!",
                          "Set the range and retrieve the data (getData) first!",
-                         "Incorrect command. Try again.",
-                         "No data found in this range."
+                         "Incorrect command. Try again."
                         ]
 
     if command not in commands:
@@ -128,7 +127,7 @@ def commandCenter(command, apiObject, dataAnalys):
 
     elif command == 'exit':
         print('See you later!')
-        exit(1)
+        exit(0)
 
 
 
