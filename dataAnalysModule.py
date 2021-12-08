@@ -1,12 +1,9 @@
-import json
-
-def jprint(activeData):
-# create a formatted string of the Python JSON object
-    text = json.dumps(activeData, sort_keys=True, indent=4)
-    print(text)
-
-
 class Data:
+    '''
+    This class is used to create objects with differing datePrices and dateVols
+    variables. The main objective of the class is to analyse the data with the
+    methods.
+    '''
 
     def __init__(self):
         self.datesPrices = None
@@ -23,10 +20,16 @@ class Data:
         return self.datesVols
 
     def getLongestDownTrend(self):
+        '''
+        Finds the longest downward trend of prices in the data range.
+        Return : the longest downward streak (int)
+        '''
         datesPrices = self.getDatesPrices()
         longestStreak = 0
 
         streak = 0
+        # If the next price is smaller than the price before -> increment streak
+        # If not save the streak as longest and start over until the end of datapoints.
         for i in range(len(datesPrices)):
             if i == len(datesPrices)-1:
                 if streak > longestStreak:
@@ -44,6 +47,10 @@ class Data:
         return longestStreak
 
     def getHighestTradeVol(self):
+        '''
+        Finds the highest trading volume and the date from data.
+        Return : (date, highest volume)
+        '''
         datesVolumes = self.getDatesVols()
         highestVol = 0
         date = datesVolumes[0][0]
@@ -56,6 +63,11 @@ class Data:
         return (date/1000, highestVol)
 
     def getBestProfit(self):
+        '''
+        Finds the best day to buy and the best day to sell the curremcy
+        returns : (1) list with buy date, sell date and the best profit
+                  (2) False if the range only has a downward trend of price
+        '''
         datesPrices = self.getDatesPrices()
 
         # Returned at the end of the algorithm
@@ -69,6 +81,10 @@ class Data:
         sellPrice = None
         profit = 0
 
+        # Important points for the algorithm :
+        # low points  : starts a new instance to find the best profit
+        # high points : high point - low point = profit. These are compared
+        # to find the best possible outcome.
         for datePrice in datesPrices[1:]:
             if datePrice[1] > buyPrice:
                 sellPrice = datePrice[1]
