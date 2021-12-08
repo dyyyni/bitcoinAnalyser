@@ -36,8 +36,9 @@
     <li>
       <a href="#How To Use">How To Use</a>
       <ul>
+        <li><a href="#Dependencies">Dependencies</a></li>
         <li><a href="#btcAnalysCLI">btcAnalysCLI</a></li>
-        <li><a href="#btcAnalys">btcAnalysC</a></li>
+        <li><a href="#btcAnalys">btcAnalys</a></li>
       </ul>
     </li>
     <li><a href="#license">License</a></li>
