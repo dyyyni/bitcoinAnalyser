@@ -86,7 +86,8 @@ python btcAnalysCLI.py
 ```
 To use the program follow the instructions from the command line interface.
 Type 'help' for list of commands.
-Example from the use:
+
+Example:
 ```
 Enter command: setRange
 Enter the first date in form (dd/mm/yyyy): 12 8 2020
