@@ -51,6 +51,10 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
+This project utilises the coingecko API to analyse the bitcoin market history.\
+The API can be found at [coingecko](https://www.coingecko.com/en/api).
+
+
 All the best\
 -Daniel
 
