@@ -51,11 +51,11 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-This project utilises the coingecko API to analyse the bitcoin market history The API can be found at [coingecko](https://www.coingecko.com/en/api).\
+This project utilises the coingecko API to analyse the bitcoin market history.The API can be found at [coingecko](https://www.coingecko.com/en/api).
 
-At the moment the program is able to analyse a given time range of bitcoin data. From the data the program is able to find the longest downward price streak, highest trading volume and the dates to make the best possible profit.\
+At the moment the program is able to analyse a given time range of bitcoin data. From the data the program is able to find the longest downward price streak, highest trading volume and the dates to make the best possible profit.
 
-There are plenty of features that could be implemented to this program if so desired.\
+There are plenty of features that could be implemented to this program if so desired.
 
 All the best\
 -Daniel
