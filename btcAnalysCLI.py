@@ -3,6 +3,10 @@ import cryptoApiModule
 import dataAnalysModule
 
 def parser(date):
+    '''
+    parser function takes a date 'dd/mm/yyyy' and returns a list [dd,mm,yyyy].
+    This function only provides string manipulation. I.e. no validity checks.
+    '''
     parsedDate = date.split('/')
 
     # The date was instructed to be filled in as 'dd/mm/yyyy'
@@ -19,9 +23,15 @@ def parser(date):
 
 
 def askDate():
+    '''
+    askDate function is used to obtain dates from the user.
+    Try-except is used to determine the date validity. If an invalid date is entered
+    the user will be notified and asked to re-enter the date.
+    Return : timestamp from a valid date.
+    '''
     correctDate = None
     dateNow = datetime.datetime.utcnow()
-    dateLowLimit = datetime.datetime(2013,4,28) # 28/4/2013
+    dateLowLimit = datetime.datetime(2013,4,28) # 28/4/2013, low-limit for the data source.
 
     while not correctDate:
         try:
