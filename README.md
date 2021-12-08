@@ -106,12 +106,14 @@ Run this command in the directory where the project files are located
 python btcAnalysCLI.py 
 ```
 You will be greeted by the instructions for use:
+
 ```btcAnalys.py dd/mm/yyyy dd/mm/yyyy -flag. (-h for options)```
 By running
 ```
 python btcAnalysCLI.py -h
 ```
 You will get the flags that can be used by the program.
+
 ```-h: help, -dt: longest down trend, -hv: highest trade volume, -bp: best profit```
 
 Example:
