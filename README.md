@@ -15,9 +15,6 @@
 <br />
 <p align="center">
   <h3 align="center">Bitcoin Market Analyser</h3>
-
-  <p align="center">
-    This repository contains a crypto analyser
   </p>
 </p>
 
@@ -74,6 +71,7 @@ Start by cloning the repository to your device by
 git clone https://github.com/dyyyni/bitcoinAnalyser.git
 ```
 Or download the zipfile containing the repository.
+For the user, the only files you should be concerned are the btcAnalysCLI.py and the btcAnalys.py which are explained in more detail later on.
 
 ### Dependencies
 This project utilises the 'Requests' library for the api connection. The library can be installed by running this command
@@ -82,6 +80,7 @@ python -m pip install requests
 ```
 
 ### btcAnalysCLI
+This is a command line interface intented for continuous u
 
 ### btcAnalys
 
