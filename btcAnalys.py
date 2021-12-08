@@ -4,6 +4,10 @@ import cryptoApiModule
 import dataAnalysModule
 
 def parser(date):
+    '''
+    parser function takes a date 'dd/mm/yyyy' and returns a list [dd,mm,yyyy].
+    This function only provides string manipulation. I.e. no validity checks.
+    '''
     parsedDate = date.split('/')
 
     # The date was instructed to be filled in as 'dd/mm/yyyy'
@@ -19,6 +23,12 @@ def parser(date):
         return parsedDate
 
 def isDateValid(parsedDate):
+    '''
+    isDateValid function is used to check the date validity.
+    Try-except is used to determine the date validity. If an invalid date is entered
+    the user will be notified and a false leading to program exit will be returned.
+    Return : timestamp from a valid date / False
+    '''
     dateNow = datetime.datetime.utcnow()
     dateLowLimit = datetime.datetime(2013,4,28) # 28/4/2013
     try:
@@ -75,14 +85,18 @@ def main():
 
     fromDate = isDateValid(parser(args[1]))
     toDate = isDateValid(parser(args[2]))
+    if fromDate >= toDate:
+        print("Program terminated. fromDate can't be smaller than or equal to toDate.")
+        exit(1)
+    flag = args[3]
 
     if not fromDate or not toDate:
-        print(print("Incorrect date."))
+        print("Incorrect date.")
         exit(1)
 
     apiControl = cryptoApiModule.CryptoApi()
     dataAnalys = dataAnalysModule.Data()
-    control(fromDate, toDate, apiControl, dataAnalys, args[3])
+    control(fromDate, toDate, apiControl, dataAnalys, flag)
 
 
 
