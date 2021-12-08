@@ -48,7 +48,7 @@ def commandCenter(command, apiObject, dataAnalys):
     enterDatePrompt =   ["Enter the first date in form (dd/mm/yyyy): ",
                          "Enter the last date in form (dd/mm/yyyy): "
                         ]
-    errorMessages =     ["The first date can't be smaller than the last date!",
+    errorMessages =     ["The last date can't be smaller than the first date!",
                          "You have to set the range first!",
                          "Set the range and retrieve the data (getData) first!",
                          "Incorrect command. Try again.",
@@ -118,6 +118,7 @@ def commandCenter(command, apiObject, dataAnalys):
 
     elif command == 'exit':
         print('See you later!')
+        exit(1)
 
 
 
