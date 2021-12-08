@@ -3,10 +3,16 @@ import requests
 apiURL = "https://api.coingecko.com/api/v3/coins/bitcoin/market_chart/range"
 
 class CryptoApi:
-
+    '''
+    This class is used to create objects that can access the coingecko cryptocurrency API.
+    '''
+    # The currency used in this application. Could be changed to any currency available
+    # in the API
     vs_currency = "eur"
 
     def __init__(self):
+
+        # These parameters are used to access the API.
         self.parameters = {
         "vs_currency": CryptoApi.vs_currency,
         "from" : None,  # utc timestamp
@@ -14,7 +20,7 @@ class CryptoApi:
         }
         self.dateFrom = None
         self.dateTo = None
-        self.dateRangeCase = None
+        self.dateRangeCase = None # Refer to __rangeHelper function
 
         self.activeData = None
 
@@ -28,9 +34,11 @@ class CryptoApi:
         < 90 days range : hourly or by 5 min data is returned
         Solution: Automatically extend the range so daily data is returned
         --> Only the actual range data will exit this module.
+        3 different cases are used to categorize the different outcomes. 
         '''
         days90 = 90*24*60*60 # Seconds
         earlyDateLim = 1374969600 # 28/4/2013 + 90 days
+
         # case 1: the range is over 90 days
         if dateTo - dateFrom > days90:
             self.dateRangeCase = 'case1'
@@ -52,6 +60,10 @@ class CryptoApi:
 
 
     def setRange(self, dateFrom, dateTo):
+        '''
+        Sets the from and to parameters and the separate dateFrom and dateTo parameters.
+        (..)Mod dates are extend ranges of dates as explained in __rangeHelper
+        '''
         (dateFromMod, dateToMod) = self.__rangeHelper(dateFrom, dateTo)
         self.dateFrom = dateFrom
         self.dateTo = dateTo
@@ -59,10 +71,18 @@ class CryptoApi:
         self.parameters["to"] = dateToMod
 
     def retrieveData(self):
+        '''
+        This method accesses the API to retrieve the data
+        '''
         response = requests.get(apiURL, params=self.parameters)
         self.__setActiveData(response)
 
     def getActiveData(self):
+        '''
+        Returns the activeData in the correct time range.
+        As explained in __rangeHelper, the date range is extented to smooth the api data granularity
+        This method utilises splicing and the different cases to return only the correct range of data.
+        '''
         datesPrices = self.activeData.json()['prices']
         datesVols = self.activeData.json()['total_volumes']
         # refer to __rangeHelper for case explanation
