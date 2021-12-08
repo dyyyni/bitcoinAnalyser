@@ -78,7 +78,7 @@ This project utilises the 'Requests' library for the api connection. The library
 ```
 python -m pip install requests
 ```
-The library can be found here [Requests](https://docs.python-requests.org/en/latest/)
+The library can be found here [Requests](https://docs.python-requests.org/en/latest/).
 
 ### btcAnalysCLI
 This is a command line interface intented for continuous usage. Start the CLI by running the command inside the directory that contains the project files
