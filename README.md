@@ -33,6 +33,13 @@
         <li><a href="#built-with">Built With</a></li>
       </ul>
     </li>
+    <li>
+      <a href="#Instructions">Instructions</a>
+      <ul>
+        <li><a href="#btcAnalysCLI">btcAnalysCLI</a></li>
+        <li><a href="#btcAnalys">btcAnalysC</a></li>
+      </ul>
+    </li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
   </ol>
