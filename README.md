@@ -108,6 +108,7 @@ python btcAnalysCLI.py
 You will be greeted by the instructions for use:
 
 ```btcAnalys.py dd/mm/yyyy dd/mm/yyyy -flag. (-h for options)```
+
 By running
 ```
 python btcAnalysCLI.py -h
