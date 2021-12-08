@@ -14,7 +14,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <h3 align="center">Bitcoin Analyser</h3>
+  <h3 align="center">Bitcoin Market Analyser</h3>
 
   <p align="center">
     This repository contains a crypto analyser
@@ -64,7 +64,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 Daniel Luoma - [@danyluoma](https://twitter.com/danyluoma) - daniel.luoma@tuni.fi
 
-Project Link: [https://github.com/dyyyni/bitcoinAnalyser](https://github.com/dyyyni/cryptoAnalyser)
+Project Link: [https://github.com/dyyyni/bitcoinAnalyser](https://github.com/dyyyni/bitcoinAnalyser)
 
 
 
