@@ -100,7 +100,27 @@ The best date to sell is 14/04/2021
 N.B. Remember to use the command 'getData' after you have set the date range!
 
 ### btcAnalys
+Sipmplified version intented for backend use.
+Run this command in the directory where the project files are located
+```
+python btcAnalysCLI.py 
+```
+You will be greeted by the instructions for use:
+```btcAnalys.py dd/mm/yyyy dd/mm/yyyy -flag. (-h for options)```
+By running
+```
+python btcAnalysCLI.py -h
+```
+You will get the flags that can be used by the program.
+```-h: help, -dt: longest down trend, -hv: highest trade volume, -bp: best profit```
 
+Example:
+```
+python btcAnalys.py 12-8-2020 16-9-2021 -bp
+06/09/2020 14/04/2021
+```
+
+Succesfull usage returns are stripped from extra content to better faciliate the backend use.
 
 <!-- LICENSE -->
 ## License
