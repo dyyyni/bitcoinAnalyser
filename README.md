@@ -70,7 +70,7 @@ All the best\
 
 ## How To Use
 Start by cloning the repository to your device by
-  git clone https://github.com/dyyyni/bitcoinAnalyser.git
+´´´git clone https://github.com/dyyyni/bitcoinAnalyser.git´´´
 
 The project is divided in to two different use cases. First one is the 
 
