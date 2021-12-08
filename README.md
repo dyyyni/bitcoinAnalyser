@@ -51,7 +51,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-This project utilises the coingecko API to analyse the bitcoin market history.The API can be found at [coingecko](https://www.coingecko.com/en/api).
+This project utilises the coingecko API to analyse the bitcoin market history. The API can be found at [coingecko](https://www.coingecko.com/en/api).
 
 At the moment the program is able to analyse a given time range of bitcoin data. From the data the program is able to find the longest downward price streak, highest trading volume and the dates to make the best possible profit.
 
@@ -69,6 +69,10 @@ All the best\
 <!-- HOW TO USE -->
 
 ## How To Use
+Start by cloning the repository to your device by
+'''git clone https://github.com/dyyyni/bitcoinAnalyser.git'''
+
+The project is divided in to two different use cases. First one is the 
 
 ### Dependencies
 
