@@ -80,7 +80,23 @@ python -m pip install requests
 ```
 
 ### btcAnalysCLI
-This is a command line interface intented for continuous u
+This is a command line interface intented for continuous usage. Start the CLI by running the command inside the directory that contains the project files
+```
+python btcAnalysCLI.py 
+```
+To use the program follow the instructions from the command line interface.
+Type 'help' for list of commands.
+Example from the use:
+```
+Enter command: setRange
+Enter the first date in form (dd/mm/yyyy): 12 8 2020
+Enter the last date in form (dd/mm/yyyy): 16 9 2021
+Enter command: getData
+Enter command: bestProf
+The best date to buy is 06/09/2020
+The best date to sell is 14/04/2021
+```
+N.B. Remember to use the command 'getData' after you have set the date range!
 
 ### btcAnalys
 
