@@ -69,10 +69,11 @@ All the best\
 <!-- HOW TO USE -->
 
 ## How To Use
-Start by cloning the repository to your device by\
+Start by cloning the repository to your device by
 ```
 git clone https://github.com/dyyyni/bitcoinAnalyser.git
 ```
+Or download the zipfile containing the repository.
 
 ### Dependencies
 This project utilises the 'Requests' library for the api connection. The library can be installed by running this command
