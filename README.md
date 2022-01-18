@@ -104,7 +104,7 @@ N.B. Remember to use the command 'getData' after you have set the date range!
 Sipmplified version intented for backend use.
 Run this command in the directory where the project files are located
 ```
-python btcAnalysCLI.py 
+python btcAnalys.py 
 ```
 You will be greeted by the instructions for use:
 
@@ -112,7 +112,7 @@ You will be greeted by the instructions for use:
 
 By running
 ```
-python btcAnalysCLI.py -h
+python btcAnalys.py -h
 ```
 You will get the flags that can be used by the program.
 
